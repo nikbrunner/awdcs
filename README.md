@@ -26,7 +26,7 @@ This system takes a different approach by organizing mappings based on their sco
 - **[W]orkspace** (`<leader>w`) - Operations affecting the entire workspace
 - **[D]ocument** (`<leader>d`) - Operations on the current document
 - **[C]hange** (`<leader>c`) - Operations on a change (Hunk)
-- **[S]ymbol** (`s`) - Operations on code symbols
+- **[S]ymbol** (`s`) - Operations on code symbols (Can also be used as `<leader>s`)
 
 ## Design Principles
 
