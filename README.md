@@ -95,12 +95,16 @@ When using `,` as the leader key, the system naturally creates efficient left-ha
 | `<leader>aa` | `A`pp `A`ctions       | Show available app actions / commands                          |
 | `<leader>ad` | `A`pp `D`ocument      | Open document from any workspace                               | If available. (e.g. `file-surfer.nvim`)                                                                              |
 | `<leader>af` | `A`pp `F`ocus         | Focus Mode                                                     |
+| `<leader>ag` | `A`pp `G`it           | Show git module                                                |                                                                                                                      |
+| `<leader>ah` | `A`pp `H`elp          | Show help submenu                                              | Submenu for documentation, manuals, and help resources                                                               |
+| `<leader>ahh` | `A`pp `H`elp `H`ighlights | Show syntax highlights                                     |                                                                                                                      |
+| `<leader>ahm` | `A`pp `H`elp `M`anuals | Show man pages                                                |                                                                                                                      |
+| `<leader>ahp` | `A`pp `H`elp `P`ages  | Show help pages                                                |                                                                                                                      |
 | `<leader>ai` | `A`pp `I`ntelligence  | Show AI tools                                                  | If available.                                                                                                        |
 | `<leader>aj` | `A`pp `J`umps         | Show application jump list                                     | If available.                                                                                                        |
 | `<leader>ak` | `A`pp `K`eybindings   | Show keybindings                                               |
 | `<leader>al` | `A`pp `L`anguages     | Manage language servers                                        |
 | `<leader>an` | `A`pp `N`otifications | Show notifications                                             |
-| `<leader>ag` | `A`pp `G`it           | Show git module                                                |                                                                                                                      |
 | `<leader>ao` | `A`pp `O`ptions       | Toggle app options like Background, Line numbers, etc.         |
 | `<leader>ap` | `A`pp `P`lugins       | Manage plugins                                                 |
 | `<leader>ar` | `A`pp `R`ecent        | Open recently visited documents accross all workspace          | If available.                                                                                                        |
@@ -114,18 +118,27 @@ When using `,` as the leader key, the system naturally creates efficient left-ha
 
 | Keybinding    | Mnemonic                         | Description                            | Notes                                                                                                 |
 | ------------- | -------------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `<leader>wc`  | `W`orkspace **`C`hanged**        | Show changed files in workspace        |
 | `<leader>wd`  | `W`orkspace **`D`ocument**       | Find document in workspace             |
 | `<leader>we`  | `W`orkspace `E`xplorer           | Open file explorer                     |
 | `<leader>wf`  | `W`orkspace `F`ind               | Find and replace in workspace          | Optional: Maybe not needed, if the editor offers a replace field under `<leader>wt`.                  |
-| `<leader>wg`  | `W`orkspace `G`it                | Show workspace version control history |                                                                                                       |
-| `<leader>wc`  | `W`orkspace **`C`hanged**        | Show changed files in workspace        |
+| `<leader>wg`  | `W`orkspace `G`it                | Show git submenu                       | Submenu for all git/version control operations                                                        |
+| `<leader>wgb` | `W`orkspace `G`it `B`ranches     | Show git branches                      |                                                                                                       |
+| `<leader>wgh` | `W`orkspace `G`it `H`istory      | Show git history (picker)              |                                                                                                       |
+| `<leader>wgH` | `W`orkspace `G`it `H`istory      | Show git history (interactive)         | If available (e.g., LazyGit)                                                                          |
+| `<leader>wgi` | `W`orkspace `G`it `I`ssues       | Browse GitHub issues                   | If available (GitHub integration)                                                                     |
+| `<leader>wgp` | `W`orkspace `G`it `P`ull Requests | Show pull requests submenu            | If available (GitHub integration)                                                                     |
+| `<leader>wgpb` | `W`orkspace `G`it `P`ull Requests `B`rowse | Browse GitHub pull requests  | If available (GitHub integration)                                                                     |
+| `<leader>wgpc` | `W`orkspace `G`it `P`ull Requests `C`hanges | Show current PR changes     | If available (GitHub integration)                                                                     |
+| `<leader>wgpd` | `W`orkspace `G`it `P`ull Requests `D`escription | Show current PR description | If available (GitHub integration)                                                                     |
+| `<leader>wgr` | `W`orkspace `G`it `R`emote       | Open remote repository                 |                                                                                                       |
+| `<leader>wgs` | `W`orkspace `G`it `S`tatus       | Show git status (interactive)          | If available (e.g., LazyGit)                                                                          |
+| `<leader>wj`  | `W`orkspace `J`umps              | Show workspace jumps                   | Jump list for workspace-level navigation                                                              |
+| `<leader>wm`  | `W`orkspace `M`odified           | Show modified documents                | Git-tracked changes                                                                                   |
 | `<leader>wp`  | `W`orkspace `P`roblems           | Show workspace diagnostics             |
 | `<leader>wr`  | `W`orkspace `R`ecent             | Show recently visited documents        | Optional: Maybe not needed, if editor merges recently opend documents in `<leader>wd`.                |
 | `<leader>ws`  | `W`orkspace `S`ymbol             | Find symbol in workspace               |
 | `<leader>wt`  | `W`orkspace `T`ext               | Find text in workspace                 |
-| `<leader>wvb` | `W`orkspace `V`ersion `B`ranches | Show version branches                  |
-| `<leader>wvc` | `W`orkspace `V`ersion `C`ommits  | Show version commits                   |
-| `<leader>wvt` | `W`orkspace `V`ersion `T`ags     | Show version tags                      |
 | `<leader>ww`  | `W`orkspace `W`ord               | Find word under cursor in workspace    | Optional: Maybe not needed if the editor uses the selection under the cursor when using `<leader>wt`. |
 
 ### `<leader>d` - [D]ocument
@@ -135,7 +148,9 @@ When using `,` as the leader key, the system naturally creates efficient left-ha
 | `<leader>da`  | `D`ocument `A`ssociated       | Find associated documents             |
 | `<leader>dc`  | `D`ocument `C`hanges          | Show document changes (if available)  |
 | `<leader>df`  | `D`ocument `F`ind             | Find and replace in document          |
-| `<leader>dg`  | `D`ocument `G`it              | Show document version control history | e.g. Visualization of `git log`             |
+| `<leader>dg`  | `D`ocument `G`it              | Show git submenu                      | Submenu for document-level git operations   |
+| `<leader>dgh` | `D`ocument `G`it `H`istory    | Show document git history (picker)    |                                             |
+| `<leader>dgH` | `D`ocument `G`it `H`istory    | Show document git history (interactive) | If available (e.g., LazyGit)              |
 | `<leader>dl`  | `D`ocument `L`ast             | Switch to last document               | <C-^> in Neovim                             |
 | `<leader>dp`  | `D`ocument `P`roblems         | Show document diagnostics             |
 | `<leader>ds`  | `D`ocument `S`ymbol           | Find symbol in document               |
@@ -180,7 +195,9 @@ vim.keymap.set("n", "s", "<Nop>")
 | -------- | --------------------- | --------------------------- | ------------------------------------------------------------- |
 | `s;`     | `S`ymbol `A`ctions    | Show symbol actions         |
 | `sd`     | `S`ymbol `D`efinition | Go to symbol definition     |
-| `sg`     | `S`ymbol `G`it        | Show git blame information  |
+| `sg`     | `S`ymbol `G`it        | Show git submenu            | Submenu for symbol-level git operations                       |
+| `sgb`    | `S`ymbol `G`it `B`lame | Show git blame for line    |                                                               |
+| `sgh`    | `S`ymbol `G`it `H`istory | Show git history for line |                                                               |
 | `si`     | `S`ymbol `I`nfo       | Show symbol information     | Hover Information                                             |
 | `sl`     | `S`ymbol `L`og        | Insert log for symbol       | If available. (e.g. Programmatically log symbol under cursor) |
 | `sn`     | `S`ymbol `N`ame       | Rename symbol               |
