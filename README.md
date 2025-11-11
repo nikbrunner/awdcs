@@ -1,6 +1,8 @@
 # AWDCS
 
-A scope-based keymap system that brings simplicity and clarity to modal editor configurations through mindful organization and purposeful design.
+<div align="center">
+  <img src="./images/banner.png" alt="AWDCS Logo">
+</div>
 
 ## Philosophy
 
