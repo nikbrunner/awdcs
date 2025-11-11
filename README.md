@@ -95,7 +95,10 @@ This pattern applies consistently across similar operations where both quick-acc
 | `<leader>ahp` | `A`pp `H`elp `P`ages       | Show help pages                                        |                                                                                                                      |
 | `<leader>ai`  | `A`pp `I`ntelligence       | Show AI tools                                          | If available.                                                                                                        |
 | `<leader>aj`  | `A`pp `J`umps              | Show application jump list                             | If available.                                                                                                        |
-| `<leader>al`  | `A`pp `L`anguages          | Manage language servers                                |
+| `<leader>al`  | `A`pp `L`anguages          | Show language servers submenu                          | Submenu for LSP and language server management                                                                       |
+| `<leader>ali` | `A`pp `L`anguages `I`nfo   | Show LSP information                                   |                                                                                                                      |
+| `<leader>all` | `A`pp `L`anguages `L`og    | Open LSP log                                           |                                                                                                                      |
+| `<leader>als` | `A`pp `L`anguages `S`erver | Open Mason (server manager)                            |                                                                                                                      |
 | `<leader>an`  | `A`pp `N`otifications      | Show notifications                                     |
 | `<leader>ao`  | `A`pp `O`ptions            | Toggle app options like Background, Line numbers, etc. |
 | `<leader>ap`  | `A`pp `P`lugins            | Manage plugins                                         |
