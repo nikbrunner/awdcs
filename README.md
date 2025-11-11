@@ -63,24 +63,6 @@ Also I find that the the middle finger is faster than the thumb, which is genera
 
 ## Keymap
 
-### `<leader><leader>` - Global
-
-This is a little bit of a special case, as it's not really a keymap, but a global command.
-This is an alternative way to quickly enter the command mode (same as `:`), which lends to increased direct usage of the builtin commands without mapping them.
-
-Since I am using home row mods (really bottom row mods.. See my layout [here](https://github.com/nikbrunner/koyo)), I sometimes get missfires for quickly typing `:`.
-When quickly double tapping the leader key, I quickly and safely reach the command mode, without worrying about typos.
-
-This is of course just personal preference.
-
-For example in Neovim you can create a mapping like so:
-
-```lua
-vim.keymap.set({ "n", "x" }, "<leader><leader>", function()
-    vim.api.nvim_feedkeys(":", "n", true)
-end, { desc = "Command Mode" })
-```
-
 ### Alphabetical Order
 
 All keybindings in each scope are listed alphabetically for easier reference and maintenance, not by frequency of use or importance.
