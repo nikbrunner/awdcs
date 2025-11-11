@@ -1,0 +1,27 @@
+{
+  "name": "awdcs",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A scope-based keymap system that brings simplicity and clarity to modal editor configurations through mindful organization and purposeful design.",
+  "keywords": [
+    "keymap"
+  ],
+  "homepage": "https://github.com/nikbrunner/awdcs#readme",
+  "bugs": {
+    "url": "https://github.com/nikbrunner/awdcs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikbrunner/awdcs.git"
+  },
+  "license": "ISC",
+  "author": "nikolaus.brunner@protonmail.ch",
+  "main": "index.js",
+  "scripts": {
+    "format:check": "prettier --check .",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "prettier": "3.6.2"
+  }
+}
