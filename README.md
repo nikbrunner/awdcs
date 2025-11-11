@@ -100,38 +100,43 @@ This pattern applies consistently across similar operations where both quick-acc
 
 ### `<leader>a` - [A]pp
 
-| Keybinding    | Mnemonic                   | Description                                                    | Notes                                                                                                                |
-| ------------- | -------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `<leader>aa`  | `A`pp `A`ctions            | Show available app actions / commands                          |
-| `<leader>ad`  | `A`pp `D`ocument           | Open document from any workspace                               | If available. (e.g. `file-surfer.nvim`)                                                                              |
-| `<leader>af`  | `A`pp `F`ocus              | Focus Mode                                                     |
-| `<leader>ag`  | `A`pp `V`ersion            | Show version control                                           | e.g. LazyGit                                                                                                         |
-| `<leader>ah`  | `A`pp `H`elp               | Show help submenu                                              | Submenu for documentation, manuals, and help resources                                                               |
-| `<leader>ahh` | `A`pp `H`elp `H`ighlights  | Show syntax highlights                                         |                                                                                                                      |
-| `<leader>ahk` | `A`pp `H`elp `K`eybindings | Show keybindings                                               |                                                                                                                      |
-| `<leader>ahm` | `A`pp `H`elp `M`anuals     | Show man pages                                                 |                                                                                                                      |
-| `<leader>ahp` | `A`pp `H`elp `P`ages       | Show help pages                                                |                                                                                                                      |
-| `<leader>ai`  | `A`pp `I`ntelligence       | Show AI tools                                                  | If available.                                                                                                        |
-| `<leader>aj`  | `A`pp `J`umps              | Show application jump list                                     | If available.                                                                                                        |
-| `<leader>al`  | `A`pp `L`anguages          | Manage language servers                                        |
-| `<leader>an`  | `A`pp `N`otifications      | Show notifications                                             |
-| `<leader>ao`  | `A`pp `O`ptions            | Toggle app options like Background, Line numbers, etc.         |
-| `<leader>ap`  | `A`pp `P`lugins            | Manage plugins                                                 |
-| `<leader>ar`  | `A`pp `R`ecent             | Open recently visited documents accross all workspace          | If available.                                                                                                        |
-| `<leader>as`  | `A`pp `S`ettings           | Toggle app settings                                            | In Neovim this would let us fuzzy find config files, and on a mac app this would lead us to `settings.json`. (cmd-,) |
-| `<leader>at`  | `A`pp `T`hemes             | Switch theme or colorscheme                                    |
-| `<leader>aw`  | `A`pp `W`orkspace          | Open workspace                                                 |
-| `<leader>az`  | `A`pp `Z`oom               | Zoom Mode                                                      |
-| `<leader>aI`  | `A`pp `I`nformation        | Show app information (formatter, lsp, linters, help tags, etc) |
+| Keybinding    | Mnemonic                   | Description                                            | Notes                                                                                                                |
+| ------------- | -------------------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| `<leader>aa`  | `A`pp `A`ctions            | Show available app actions / commands                  |
+| `<leader>ad`  | `A`pp `D`ocument           | Open document from any workspace                       | If available. (e.g. `file-surfer.nvim`)                                                                              |
+| `<leader>af`  | `A`pp `F`ocus              | Focus Mode                                             |
+| `<leader>ag`  | `A`pp `V`ersion            | Show version control                                   | e.g. LazyGit                                                                                                         |
+| `<leader>ah`  | `A`pp `H`elp               | Show help submenu                                      | Submenu for documentation, manuals, and help resources                                                               |
+| `<leader>ahh` | `A`pp `H`elp `H`ighlights  | Show syntax highlights                                 |                                                                                                                      |
+| `<leader>ahk` | `A`pp `H`elp `K`eybindings | Show keybindings                                       |                                                                                                                      |
+| `<leader>ahm` | `A`pp `H`elp `M`anuals     | Show man pages                                         |                                                                                                                      |
+| `<leader>ahp` | `A`pp `H`elp `P`ages       | Show help pages                                        |                                                                                                                      |
+| `<leader>ai`  | `A`pp `I`ntelligence       | Show AI tools                                          | If available.                                                                                                        |
+| `<leader>aj`  | `A`pp `J`umps              | Show application jump list                             | If available.                                                                                                        |
+| `<leader>al`  | `A`pp `L`anguages          | Manage language servers                                |
+| `<leader>an`  | `A`pp `N`otifications      | Show notifications                                     |
+| `<leader>ao`  | `A`pp `O`ptions            | Toggle app options like Background, Line numbers, etc. |
+| `<leader>ap`  | `A`pp `P`lugins            | Manage plugins                                         |
+| `<leader>ar`  | `A`pp `R`ecent             | Open recently visited documents accross all workspace  | If available.                                                                                                        |
+| `<leader>as`  | `A`pp `S`ettings           | Toggle app settings                                    | In Neovim this would let us fuzzy find config files, and on a mac app this would lead us to `settings.json`. (cmd-,) |
+| `<leader>at`  | `A`pp `T`hemes             | Switch theme or colorscheme                            |
+| `<leader>aw`  | `A`pp `W`orkspace          | Open workspace                                         |
+| `<leader>az`  | `A`pp `Z`oom               | Zoom Mode                                              |
 
 ### `<leader>w` - [W]orkspace
 
 | Keybinding     | Mnemonic                                            | Description                         | Notes                                                                                                 |
 | -------------- | --------------------------------------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | `<leader>wc`   | `W`orkspace `C`hanges                               | Show changes/hunks in workspace     | Picker for individual hunks/changes (git diff)                                                        |
-| `<leader>wd`   | `W`orkspace **`D`ocument**                          | Find document in workspace          |
+| `<leader>wd`   | `W`orkspace `D`ocument                              | Find document in workspace          |
 | `<leader>we`   | `W`orkspace `E`xplorer                              | Open file explorer                  |
 | `<leader>wf`   | `W`orkspace `F`ind                                  | Find and replace in workspace       | Optional: Maybe not needed, if the editor offers a replace field under `<leader>wt`.                  |
+| `<leader>wj`   | `W`orkspace `J`umps                                 | Show workspace jumps                | Jump list for workspace-level navigation                                                              |
+| `<leader>wm`   | `W`orkspace `M`odified                              | Show modified documents             | List of modified files (git status)                                                                   |
+| `<leader>wp`   | `W`orkspace `P`roblems                              | Show workspace diagnostics          |
+| `<leader>wr`   | `W`orkspace `R`ecent                                | Show recently visited documents     | Optional: Maybe not needed, if editor merges recently opend documents in `<leader>wd`.                |
+| `<leader>ws`   | `W`orkspace `S`ymbol                                | Find symbol in workspace            |
+| `<leader>wt`   | `W`orkspace `T`ext                                  | Find text in workspace              |
 | `<leader>wv`   | `W`orkspace `V`ersion                               | Show version submenu                | Submenu for all version control operations                                                            |
 | `<leader>wvb`  | `W`orkspace `V`ersion `B`ranches                    | Show version branches               |                                                                                                       |
 | `<leader>wvh`  | `W`orkspace `V`ersion `H`istory                     | Show version history (picker)       |                                                                                                       |
@@ -144,12 +149,6 @@ This pattern applies consistently across similar operations where both quick-acc
 | `<leader>wvpd` | `W`orkspace `V`ersion `P`ull Requests `D`escription | Show current PR description         | If available (GitHub integration)                                                                     |
 | `<leader>wvr`  | `W`orkspace `V`ersion `R`emote                      | Open remote repository              |                                                                                                       |
 | `<leader>wvs`  | `W`orkspace `V`ersion `S`tatus                      | Show version status (interactive)   | If available (e.g., LazyGit)                                                                          |
-| `<leader>wj`   | `W`orkspace `J`umps                                 | Show workspace jumps                | Jump list for workspace-level navigation                                                              |
-| `<leader>wm`   | `W`orkspace `M`odified                              | Show modified documents             | List of modified files (git status)                                                                   |
-| `<leader>wp`   | `W`orkspace `P`roblems                              | Show workspace diagnostics          |
-| `<leader>wr`   | `W`orkspace `R`ecent                                | Show recently visited documents     | Optional: Maybe not needed, if editor merges recently opend documents in `<leader>wd`.                |
-| `<leader>ws`   | `W`orkspace `S`ymbol                                | Find symbol in workspace            |
-| `<leader>wt`   | `W`orkspace `T`ext                                  | Find text in workspace              |
 | `<leader>ww`   | `W`orkspace `W`ord                                  | Find word under cursor in workspace | Optional: Maybe not needed if the editor uses the selection under the cursor when using `<leader>wt`. |
 
 ### `<leader>d` - [D]ocument
@@ -159,14 +158,14 @@ This pattern applies consistently across similar operations where both quick-acc
 | `<leader>da`  | `D`ocument `A`ssociated        | Find associated documents                   |
 | `<leader>dc`  | `D`ocument `C`hanges           | Show document changes (if available)        |
 | `<leader>df`  | `D`ocument `F`ind              | Find and replace in document                |
-| `<leader>dv`  | `D`ocument `V`ersion           | Show version submenu                        | Submenu for document-level version operations |
-| `<leader>dvh` | `D`ocument `V`ersion `H`istory | Show document version history (picker)      |                                               |
-| `<leader>dvH` | `D`ocument `V`ersion `H`istory | Show document version history (interactive) | If available (e.g., LazyGit)                  |
 | `<leader>dl`  | `D`ocument `L`ast              | Switch to last document                     | <C-^> in Neovim                               |
 | `<leader>dp`  | `D`ocument `P`roblems          | Show document diagnostics                   |
 | `<leader>ds`  | `D`ocument `S`ymbol            | Find symbol in document                     |
 | `<leader>dt`  | `D`ocument `T`ext              | Find text in document                       |
 | `<leader>du`  | `D`ocument `U`ndo              | Open undo tree                              | If available.                                 |
+| `<leader>dv`  | `D`ocument `V`ersion           | Show version submenu                        | Submenu for document-level version operations |
+| `<leader>dvh` | `D`ocument `V`ersion `H`istory | Show document version history (picker)      |                                               |
+| `<leader>dvH` | `D`ocument `V`ersion `H`istory | Show document version history (interactive) | If available (e.g., LazyGit)                  |
 | `<leader>dvr` | `D`ocument `V`ersion `R`evert  | Revert changes                              |
 | `<leader>dvs` | `D`ocument `V`ersion `S`tage   | Stage changes                               |
 | `<leader>dw`  | `D`ocument `W`ord              | Find word under cursor in document          |
@@ -204,20 +203,20 @@ vim.keymap.set("n", "s", "<Nop>")
 
 | Shortcut | Mnemonic                     | Description                   | Notes                                                         |
 | -------- | ---------------------------- | ----------------------------- | ------------------------------------------------------------- |
+| `sI`     | `S`ymbol `I`nspect           | Inspect symbol under cursor   |
 | `sa`     | `S`ymbol `A`ctions           | Show symbol actions           |
 | `sc`     | `S`ymbol `C`alls             | Show calls submenu            | Submenu for incoming/outgoing calls                           |
 | `sci`    | `S`ymbol `C`alls `I`ncoming  | Show incoming calls           |                                                               |
 | `sco`    | `S`ymbol `C`alls `O`utgoing  | Show outgoing calls           |                                                               |
 | `sd`     | `S`ymbol `D`efinition        | Go to symbol definition       |
-| `sv`     | `S`ymbol `V`ersion           | Show version submenu          | Submenu for symbol-level version operations                   |
-| `svb`    | `S`ymbol `V`ersion `B`lame   | Show version blame for line   |                                                               |
-| `svh`    | `S`ymbol `V`ersion `H`istory | Show version history for line |                                                               |
 | `si`     | `S`ymbol `I`nfo              | Show symbol information       | Hover Information                                             |
 | `sl`     | `S`ymbol `L`og               | Insert log for symbol         | If available. (e.g. Programmatically log symbol under cursor) |
 | `sn`     | `S`ymbol `N`ame              | Rename symbol                 |
 | `sr`     | `S`ymbol `R`eferences        | Show symbol references        |
 | `st`     | `S`ymbol `T`ype              | Go to type definition         |
-| `sI`     | `S`ymbol `I`nspect           | Inspect symbol under cursor   |
+| `sv`     | `S`ymbol `V`ersion           | Show version submenu          | Submenu for symbol-level version operations                   |
+| `svb`    | `S`ymbol `V`ersion `B`lame   | Show version blame for line   |                                                               |
+| `svh`    | `S`ymbol `V`ersion `H`istory | Show version history for line |                                                               |
 
 ## Contributing
 
