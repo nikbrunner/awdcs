@@ -37,10 +37,11 @@ This system takes a different approach by organizing mappings based on their sco
   - Mappings should represent clear, meaningful operations
   - Focus on frequently used operations that benefit from quick access
   - Focus on what the operation means, not how it's implemented
-- **Tool & Editor Agnostic**:
-  - Mappings should be independent of specific tools or editors
-  - Use semantic terms (e.g., 'History' instead of 'Git')
-  - Implementation details are left to the user's configuration
+- **Clear & Specific Naming**:
+  - Use clear, specific terms that accurately describe operations
+  - Be pragmatic with tool names: use "Version" for version control, "LSP" for language features
+  - While tool-agnostic design is ideal, explicit names prevent confusion when operations are inherently tied to specific tools
+  - Implementation details are still left to the user's configuration
 - **Preserve Editor Defaults**:
   - Don't replace basic editor operations with custom mappings
   - Focus on operations that enhance rather than replace core functionality
@@ -67,8 +68,8 @@ Also I find that the the middle finger is faster than the thumb, which is genera
 This is a little bit of a special case, as it's not really a keymap, but a global command.
 This is an alternative way to quickly enter the command mode (same as `:`), which lends to increased direct usage of the builtin commands without mapping them.
 
-Since I am using home row mods (really bottom row mods.. See my layout [here](https://github.com/nikbrunner/koyo>), I sometimes get missfires for quickly typing `:`.
-When quickly dobule tapping the leader key, I quickly and safely reach the command mode, without worrying about typos.
+Since I am using home row mods (really bottom row mods.. See my layout [here](https://github.com/nikbrunner/koyo)), I sometimes get missfires for quickly typing `:`.
+When quickly double tapping the leader key, I quickly and safely reach the command mode, without worrying about typos.
 
 This is of course just personal preference.
 
@@ -88,6 +89,15 @@ All keybindings in each scope are listed alphabetically for easier reference and
 
 When using `,` as the leader key, the system naturally creates efficient left-hand finger patterns. The scope key (first key after leader) and the operation key (second key) are often adjacent or nearby on the keyboard (e.g., `sa`, `we`, `wd`), minimizing finger travel and creating comfortable rolling motions for the left hand. This ergonomic benefit is a fortunate consequence of the alphabetical organization combined with the QWERTY layout's letter placement.
 
+### Capital Letter Pattern (Variants)
+
+When an operation has multiple UI implementations (e.g., transient picker vs. persistent panel), capital letters distinguish the variants:
+
+- **Lowercase**: Transient/picker-based UI (e.g., `<leader>wgh` - Git history picker)
+- **Uppercase**: Static/persistent UI (e.g., `<leader>wgH` - Git history in LazyGit, `<leader>dP` - Problems in Trouble panel)
+
+This pattern applies consistently across similar operations where both quick-access (picker) and deep-dive (persistent) interfaces are available.
+
 ### `<leader>a` - [A]pp
 
 | Keybinding   | Mnemonic              | Description                                                    | Notes                                                                                                                |
@@ -95,14 +105,14 @@ When using `,` as the leader key, the system naturally creates efficient left-ha
 | `<leader>aa` | `A`pp `A`ctions       | Show available app actions / commands                          |
 | `<leader>ad` | `A`pp `D`ocument      | Open document from any workspace                               | If available. (e.g. `file-surfer.nvim`)                                                                              |
 | `<leader>af` | `A`pp `F`ocus         | Focus Mode                                                     |
-| `<leader>ag` | `A`pp `G`it           | Show git module                                                |                                                                                                                      |
+| `<leader>ag` | `A`pp `V`ersion           | Show version control                                                 | e.g. LazyGit                                                                                                                      |
 | `<leader>ah` | `A`pp `H`elp          | Show help submenu                                              | Submenu for documentation, manuals, and help resources                                                               |
 | `<leader>ahh` | `A`pp `H`elp `H`ighlights | Show syntax highlights                                     |                                                                                                                      |
+| `<leader>ahk` | `A`pp `H`elp `K`eybindings | Show keybindings                                          |                                                                                                                      |
 | `<leader>ahm` | `A`pp `H`elp `M`anuals | Show man pages                                                |                                                                                                                      |
 | `<leader>ahp` | `A`pp `H`elp `P`ages  | Show help pages                                                |                                                                                                                      |
 | `<leader>ai` | `A`pp `I`ntelligence  | Show AI tools                                                  | If available.                                                                                                        |
 | `<leader>aj` | `A`pp `J`umps         | Show application jump list                                     | If available.                                                                                                        |
-| `<leader>ak` | `A`pp `K`eybindings   | Show keybindings                                               |
 | `<leader>al` | `A`pp `L`anguages     | Manage language servers                                        |
 | `<leader>an` | `A`pp `N`otifications | Show notifications                                             |
 | `<leader>ao` | `A`pp `O`ptions       | Toggle app options like Background, Line numbers, etc.         |
@@ -118,23 +128,24 @@ When using `,` as the leader key, the system naturally creates efficient left-ha
 
 | Keybinding    | Mnemonic                         | Description                            | Notes                                                                                                 |
 | ------------- | -------------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `<leader>wc`  | `W`orkspace **`C`hanged**        | Show changed files in workspace        |
+| `<leader>wc`  | `W`orkspace `C`hanges            | Show changes/hunks in workspace        | Picker for individual hunks/changes (git diff)                                                       |
 | `<leader>wd`  | `W`orkspace **`D`ocument**       | Find document in workspace             |
 | `<leader>we`  | `W`orkspace `E`xplorer           | Open file explorer                     |
 | `<leader>wf`  | `W`orkspace `F`ind               | Find and replace in workspace          | Optional: Maybe not needed, if the editor offers a replace field under `<leader>wt`.                  |
-| `<leader>wg`  | `W`orkspace `G`it                | Show git submenu                       | Submenu for all git/version control operations                                                        |
-| `<leader>wgb` | `W`orkspace `G`it `B`ranches     | Show git branches                      |                                                                                                       |
-| `<leader>wgh` | `W`orkspace `G`it `H`istory      | Show git history (picker)              |                                                                                                       |
-| `<leader>wgH` | `W`orkspace `G`it `H`istory      | Show git history (interactive)         | If available (e.g., LazyGit)                                                                          |
-| `<leader>wgi` | `W`orkspace `G`it `I`ssues       | Browse GitHub issues                   | If available (GitHub integration)                                                                     |
-| `<leader>wgp` | `W`orkspace `G`it `P`ull Requests | Show pull requests submenu            | If available (GitHub integration)                                                                     |
-| `<leader>wgpb` | `W`orkspace `G`it `P`ull Requests `B`rowse | Browse GitHub pull requests  | If available (GitHub integration)                                                                     |
-| `<leader>wgpc` | `W`orkspace `G`it `P`ull Requests `C`hanges | Show current PR changes     | If available (GitHub integration)                                                                     |
-| `<leader>wgpd` | `W`orkspace `G`it `P`ull Requests `D`escription | Show current PR description | If available (GitHub integration)                                                                     |
-| `<leader>wgr` | `W`orkspace `G`it `R`emote       | Open remote repository                 |                                                                                                       |
-| `<leader>wgs` | `W`orkspace `G`it `S`tatus       | Show git status (interactive)          | If available (e.g., LazyGit)                                                                          |
+| `<leader>wv`  | `W`orkspace `V`ersion                | Show version submenu                       | Submenu for all version control operations                                                        |
+| `<leader>wvb` | `W`orkspace `V`ersion `B`ranches     | Show version branches                      |                                                                                                       |
+| `<leader>wvh` | `W`orkspace `V`ersion `H`istory      | Show version history (picker)              |                                                                                                       |
+| `<leader>wvH` | `W`orkspace `V`ersion `H`istory      | Show version history (interactive)         | If available (e.g., LazyGit)                                                                          |
+| `<leader>wvi` | `W`orkspace `V`ersion `I`ssues       | Show issues submenu                    | If available (GitHub integration). Namespace for issue operations.                                    |
+| `<leader>wvib` | `W`orkspace `V`ersion `I`ssues `B`rowse | Browse GitHub issues                | If available (GitHub integration)                                                                     |
+| `<leader>wvp` | `W`orkspace `V`ersion `P`ull Requests | Show pull requests submenu            | If available (GitHub integration). Namespace for PR operations.                                       |
+| `<leader>wvpb` | `W`orkspace `V`ersion `P`ull Requests `B`rowse | Browse pull requests        | If available (GitHub integration)                                                                     |
+| `<leader>wvpc` | `W`orkspace `V`ersion `P`ull Requests `C`hanges | Show current PR changes     | If available (GitHub integration)                                                                     |
+| `<leader>wvpd` | `W`orkspace `V`ersion `P`ull Requests `D`escription | Show current PR description | If available (GitHub integration)                                                                     |
+| `<leader>wvr` | `W`orkspace `V`ersion `R`emote       | Open remote repository                 |                                                                                                       |
+| `<leader>wvs` | `W`orkspace `V`ersion `S`tatus       | Show version status (interactive)          | If available (e.g., LazyGit)                                                                          |
 | `<leader>wj`  | `W`orkspace `J`umps              | Show workspace jumps                   | Jump list for workspace-level navigation                                                              |
-| `<leader>wm`  | `W`orkspace `M`odified           | Show modified documents                | Git-tracked changes                                                                                   |
+| `<leader>wm`  | `W`orkspace `M`odified           | Show modified documents                | List of modified files (git status)                                                                   |
 | `<leader>wp`  | `W`orkspace `P`roblems           | Show workspace diagnostics             |
 | `<leader>wr`  | `W`orkspace `R`ecent             | Show recently visited documents        | Optional: Maybe not needed, if editor merges recently opend documents in `<leader>wd`.                |
 | `<leader>ws`  | `W`orkspace `S`ymbol             | Find symbol in workspace               |
@@ -148,9 +159,9 @@ When using `,` as the leader key, the system naturally creates efficient left-ha
 | `<leader>da`  | `D`ocument `A`ssociated       | Find associated documents             |
 | `<leader>dc`  | `D`ocument `C`hanges          | Show document changes (if available)  |
 | `<leader>df`  | `D`ocument `F`ind             | Find and replace in document          |
-| `<leader>dg`  | `D`ocument `G`it              | Show git submenu                      | Submenu for document-level git operations   |
-| `<leader>dgh` | `D`ocument `G`it `H`istory    | Show document git history (picker)    |                                             |
-| `<leader>dgH` | `D`ocument `G`it `H`istory    | Show document git history (interactive) | If available (e.g., LazyGit)              |
+| `<leader>dv`  | `D`ocument `V`ersion          | Show version submenu                  | Submenu for document-level version operations |
+| `<leader>dvh` | `D`ocument `V`ersion `H`istory| Show document version history (picker) |                                             |
+| `<leader>dvH` | `D`ocument `V`ersion `H`istory| Show document version history (interactive) | If available (e.g., LazyGit)        |
 | `<leader>dl`  | `D`ocument `L`ast             | Switch to last document               | <C-^> in Neovim                             |
 | `<leader>dp`  | `D`ocument `P`roblems         | Show document diagnostics             |
 | `<leader>ds`  | `D`ocument `S`ymbol           | Find symbol in document               |
@@ -158,7 +169,6 @@ When using `,` as the leader key, the system naturally creates efficient left-ha
 | `<leader>du`  | `D`ocument `U`ndo             | Open undo tree                        | If available.                               |
 | `<leader>dvr` | `D`ocument `V`ersion `R`evert | Revert changes                        |
 | `<leader>dvs` | `D`ocument `V`ersion `S`tage  | Stage changes                         |
-| `<leader>dvu` | `D`ocument `V`ersion `U`tage  | Unstage changes                       |
 | `<leader>dw`  | `D`ocument `W`ord             | Find word under cursor in document    |
 | `<leader>dya` | `D`ocument `Y`ank `A`ll       | Copy whole document                   |                                             |
 | `<leader>dyp` | `D`ocument `Y`ank `P`ath      | Copy path of document                 | e.g. absolute, relative path, filename etc. |
@@ -168,11 +178,12 @@ When using `,` as the leader key, the system naturally creates efficient left-ha
 
 | Shortcut     | Mnemonic          | Description         | Notes                                         |
 | ------------ | ----------------- | ------------------- | --------------------------------------------- |
-| `<leader>cs` | `C`hange `S`tage  | Stage current hunk  |
-| `<leader>cr` | `C`hange `R`evert | Revert current hunk |
-| `<leader>cu` | `C`hange `U`ndo   | Undo staged hunk    |
-| `<leader>cd` | `C`hange `D`iff   | Show hunk diff      |
 | `<leader>ca` | `C`hange `A`ll    | Show all changes    | If available. (e.g. `Snacks.picker.git_diff`) |
+| `<leader>cd` | `C`hange `D`iff   | Show hunk diff      |
+| `<leader>cg` | `C`hange `G`it    | Show hunk preview   | Toggle overlay/preview                        |
+| `<leader>cr` | `C`hange `R`evert | Revert current hunk |
+| `<leader>cs` | `C`hange `S`tage  | Stage current hunk  |
+| `<leader>cu` | `C`hange `U`ndo   | Undo staged hunk    |
 
 ### `s` - [S]ymbol
 
@@ -193,15 +204,19 @@ vim.keymap.set("n", "s", "<Nop>")
 
 | Shortcut | Mnemonic              | Description                 | Notes                                                         |
 | -------- | --------------------- | --------------------------- | ------------------------------------------------------------- |
-| `s;`     | `S`ymbol `A`ctions    | Show symbol actions         |
+| `sa`     | `S`ymbol `A`ctions    | Show symbol actions         |
+| `sc`     | `S`ymbol `C`alls      | Show calls submenu          | Submenu for incoming/outgoing calls                           |
+| `sci`    | `S`ymbol `C`alls `I`ncoming | Show incoming calls   |                                                               |
+| `sco`    | `S`ymbol `C`alls `O`utgoing | Show outgoing calls   |                                                               |
 | `sd`     | `S`ymbol `D`efinition | Go to symbol definition     |
-| `sg`     | `S`ymbol `G`it        | Show git submenu            | Submenu for symbol-level git operations                       |
-| `sgb`    | `S`ymbol `G`it `B`lame | Show git blame for line    |                                                               |
-| `sgh`    | `S`ymbol `G`it `H`istory | Show git history for line |                                                               |
+| `sv`     | `S`ymbol `V`ersion        | Show version submenu            | Submenu for symbol-level version operations                       |
+| `svb`    | `S`ymbol `V`ersion `B`lame | Show version blame for line    |                                                               |
+| `svh`    | `S`ymbol `V`ersion `H`istory | Show version history for line |                                                               |
 | `si`     | `S`ymbol `I`nfo       | Show symbol information     | Hover Information                                             |
 | `sl`     | `S`ymbol `L`og        | Insert log for symbol       | If available. (e.g. Programmatically log symbol under cursor) |
 | `sn`     | `S`ymbol `N`ame       | Rename symbol               |
 | `sr`     | `S`ymbol `R`eferences | Show symbol references      |
+| `st`     | `S`ymbol `T`ype       | Go to type definition       |
 | `sI`     | `S`ymbol `I`nspect    | Inspect symbol under cursor |
 
 ## Contributing
