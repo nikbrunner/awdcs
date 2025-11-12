@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Keyboard, ChevronDown, ChevronRight } from 'lucide-react';
 import type { KeymapNode as KeymapNodeType } from '../types/keymap';
 
 interface KeymapNodeProps {
@@ -6,99 +7,133 @@ interface KeymapNodeProps {
   node: KeymapNodeType;
   path: string[];
   depth: number;
+  scopeColorClass?: string;
 }
 
-export function KeymapNode({ nodeKey, node, path, depth }: KeymapNodeProps) {
-  const [isExpanded, setIsExpanded] = useState(depth < 2);
+export function KeymapNode({ nodeKey, node, path, depth, scopeColorClass }: KeymapNodeProps) {
+  const [isExpanded, setIsExpanded] = useState(depth < 1);
   const hasChildren = node.keymaps && Object.keys(node.keymaps).length > 0;
   const currentPath = [...path, nodeKey];
   const binding = currentPath.join('');
 
   return (
     <div style={{
-      marginBottom: depth === 0 ? '1rem' : '0',
-      border: depth === 0 ? '1px solid var(--color-border)' : 'none',
-      borderRadius: depth === 0 ? '8px' : '0',
-      overflow: 'hidden',
-      backgroundColor: depth === 0 ? 'var(--color-surface)' : 'transparent',
+      display: 'flex',
+      flexDirection: 'column',
+      width: '100%',
     }}>
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        style={{
-          width: '100%',
-          display: 'flex',
-          alignItems: 'flex-start',
-          gap: '1rem',
-          padding: depth === 0 ? '1.5rem' : '0.75rem 1.5rem',
-          background: 'none',
-          border: 'none',
-          cursor: hasChildren ? 'pointer' : 'default',
-          textAlign: 'left',
-          transition: 'background-color 0.2s',
-          backgroundColor: depth === 0 ? 'var(--color-surface)' : 'transparent',
-        }}
-        disabled={!hasChildren}
-      >
-        {hasChildren && (
-          <span style={{
-            fontSize: '0.75rem',
-            color: 'var(--color-text-muted)',
-            paddingTop: '0.25rem',
-          }}>
-            {isExpanded ? '▼' : '▶'}
-          </span>
-        )}
-        <div style={{ flex: 1 }}>
-          <div style={{
-            fontSize: depth === 0 ? '1.5rem' : '1rem',
-            marginBottom: '0.25rem',
+      {/* Parent Node */}
+      <div>
+        <button
+          onClick={() => hasChildren && setIsExpanded(!isExpanded)}
+          className={`neobrutalist-card ${scopeColorClass || ''}`}
+          style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '0.75rem',
+            justifyContent: 'space-between',
+            gap: '1rem',
+            padding: '1rem 1.25rem',
+            background: scopeColorClass ? undefined : 'var(--color-surface)',
+            cursor: hasChildren ? 'pointer' : 'default',
+            width: '100%',
+            textAlign: 'left',
+          }}
+          disabled={!hasChildren}
+        >
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1rem',
+            flex: 1,
           }}>
-            <kbd style={{
-              fontSize: depth === 0 ? '1rem' : '0.875rem',
-              color: 'var(--color-primary)',
-            }}>
+            <Keyboard
+              size={20}
+              style={{
+                color: scopeColorClass ? 'white' : 'var(--color-text)',
+                flexShrink: 0,
+              }}
+            />
+            <kbd
+              className="neobrutalist-kbd"
+              style={{
+                fontSize: '1rem',
+                color: scopeColorClass ? 'white' : 'var(--color-text)',
+                backgroundColor: scopeColorClass ? 'rgba(255, 255, 255, 0.2)' : undefined,
+                border: scopeColorClass ? '3px solid rgba(255, 255, 255, 0.5)' : undefined,
+                flexShrink: 0,
+              }}
+            >
               {binding}
             </kbd>
-            <span>{node.label}</span>
-          </div>
-          {node.description && (
-            <p style={{
-              fontSize: '0.95rem',
-              color: 'var(--color-text-muted)',
-              margin: 0,
-            }}>
-              {node.description}
-            </p>
-          )}
-          {node.notes && (
-            <p style={{
-              fontSize: '0.875rem',
-              color: 'var(--color-text-muted)',
-              fontStyle: 'italic',
-              marginTop: '0.25rem',
-            }}>
-              {node.notes}
-            </p>
-          )}
-        </div>
-      </button>
 
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{
+                fontSize: '1rem',
+                fontWeight: '700',
+                marginBottom: '0.125rem',
+                color: scopeColorClass ? 'white' : 'var(--color-text)',
+              }}>
+                {node.label}
+              </div>
+
+              {node.description && (
+                <p style={{
+                  fontSize: '0.875rem',
+                  color: scopeColorClass ? 'rgba(255, 255, 255, 0.9)' : 'var(--color-text-muted)',
+                  margin: 0,
+                  lineHeight: '1.3',
+                }}>
+                  {node.description}
+                </p>
+              )}
+
+              {node.notes && (
+                <p style={{
+                  fontSize: '0.75rem',
+                  color: scopeColorClass ? 'rgba(255, 255, 255, 0.8)' : 'var(--color-text-muted)',
+                  fontStyle: 'italic',
+                  margin: '0.25rem 0 0 0',
+                  lineHeight: '1.3',
+                }}>
+                  {node.notes}
+                </p>
+              )}
+            </div>
+          </div>
+
+          {hasChildren && (
+            <div style={{ flexShrink: 0 }}>
+              {isExpanded ? (
+                <ChevronDown size={20} style={{ color: scopeColorClass ? 'white' : 'var(--color-text)' }} />
+              ) : (
+                <ChevronRight size={20} style={{ color: scopeColorClass ? 'white' : 'var(--color-text)' }} />
+              )}
+            </div>
+          )}
+        </button>
+      </div>
+
+      {/* Children Nodes */}
       {isExpanded && hasChildren && (
-        <div style={{
-          padding: '0 1.5rem 1.5rem 3.5rem',
-          backgroundColor: depth === 0 ? 'var(--color-bg)' : 'transparent',
-        }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem',
+            marginTop: '1rem',
+            paddingLeft: '2rem',
+            borderLeft: '4px solid var(--color-border)',
+          }}
+        >
           {Object.entries(node.keymaps!).map(([key, childNode]) => (
-            <KeymapNode
-              key={key}
-              nodeKey={key}
-              node={childNode}
-              path={currentPath}
-              depth={depth + 1}
-            />
+            <div key={key} data-child-node>
+              <KeymapNode
+                nodeKey={key}
+                node={childNode}
+                path={currentPath}
+                depth={depth + 1}
+              />
+            </div>
           ))}
         </div>
       )}
