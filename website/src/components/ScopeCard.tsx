@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Keyboard, ChevronDown, ChevronRight } from 'lucide-react';
+import { cva, cx } from 'class-variance-authority';
 import type { KeymapNode as KeymapNodeType } from '../types/keymap';
 import { KeymapNode } from './KeymapNode';
+import styles from './ScopeCard.module.css';
 
 interface ScopeCardProps {
   scopeKey: string;
@@ -19,59 +21,33 @@ const getScopeColor = (key: string): string => {
   return scopeMap[key] || 'scope-app';
 };
 
+const cardVariants = cva(cx('neobrutalist-card', styles.card), {
+  variants: {
+    clickable: {
+      true: styles.clickable,
+      false: '',
+    },
+  },
+});
+
 export function ScopeCard({ scopeKey, node }: ScopeCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const hasChildren = node.keymaps && Object.keys(node.keymaps).length > 0;
   const scopeColorClass = getScopeColor(scopeKey);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        gap: '2rem',
-      }}
-    >
+    <div className={styles.wrapper}>
       {/* Top-level Scope Card */}
       <button
         onClick={() => hasChildren && setIsExpanded(!isExpanded)}
-        className="neobrutalist-card"
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '1.25rem',
-          padding: '2rem',
-          background: 'var(--color-surface)',
-          cursor: hasChildren ? 'pointer' : 'default',
-          minWidth: '320px',
-          maxWidth: '400px',
-          textAlign: 'left',
-          flexShrink: 0,
-        }}
+        className={cardVariants({ clickable: hasChildren })}
         disabled={!hasChildren}
       >
         {/* Header with key indicator */}
-        <div
-          className={scopeColorClass}
-          style={{
-            padding: '0.75rem 1rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '1rem',
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <div className={cx(scopeColorClass, styles.header)}>
+          <div className={styles.headerContent}>
             <Keyboard size={28} />
-            <kbd
-              className="neobrutalist-kbd"
-              style={{
-                fontSize: '1.5rem',
-                backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                border: '3px solid rgba(255, 255, 255, 0.5)',
-              }}
-            >
+            <kbd className={cx('neobrutalist-kbd', styles.kbd)}>
               {scopeKey === 'leader' ? '<leader>' : scopeKey}
             </kbd>
           </div>
@@ -85,58 +61,22 @@ export function ScopeCard({ scopeKey, node }: ScopeCardProps) {
         </div>
 
         {/* Label and Description */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <h3
-            style={{
-              fontSize: '1.75rem',
-              fontWeight: '800',
-              margin: 0,
-              color: 'var(--color-text)',
-            }}
-          >
-            {node.label}
-          </h3>
+        <div className={styles.content}>
+          <h3 className={styles.title}>{node.label}</h3>
           {node.description && (
-            <p
-              style={{
-                fontSize: '1rem',
-                color: 'var(--color-text-muted)',
-                margin: 0,
-                lineHeight: '1.5',
-              }}
-            >
-              {node.description}
-            </p>
+            <p className={styles.description}>{node.description}</p>
           )}
         </div>
 
         {/* Notes */}
         {node.notes && (
-          <p
-            style={{
-              fontSize: '0.875rem',
-              color: 'var(--color-text-muted)',
-              fontStyle: 'italic',
-              margin: 0,
-              lineHeight: '1.4',
-            }}
-          >
-            {node.notes}
-          </p>
+          <p className={styles.notes}>{node.notes}</p>
         )}
       </button>
 
       {/* Expanded Children */}
       {isExpanded && hasChildren && (
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1.5rem',
-            flex: 1,
-            minWidth: 0,
-          }}
-        >
+        <div className={styles.childrenGrid}>
           {Object.entries(node.keymaps!).map(([key, childNode]) => {
             // For leader's direct children (a, w, d, c), apply scope colors
             const scopeColorClass = scopeKey === 'leader' ? getScopeColor(key) : undefined;

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Keyboard, ChevronDown, ChevronRight } from 'lucide-react';
+import { cva, cx, type VariantProps } from 'class-variance-authority';
 import type { KeymapNode as KeymapNodeType } from '../types/keymap';
+import styles from './KeymapNode.module.css';
 
 interface KeymapNodeProps {
   nodeKey: string;
@@ -10,96 +12,156 @@ interface KeymapNodeProps {
   scopeColorClass?: string;
 }
 
+const cardVariants = cva(cx('neobrutalist-card', styles.card), {
+  variants: {
+    level: {
+      top: styles.topLevel,
+      nested: styles.nested,
+    },
+    colored: {
+      true: styles.colored,
+      false: styles.default,
+    },
+    clickable: {
+      true: styles.clickable,
+      false: '',
+    },
+  },
+});
+
+const cardContentVariants = cva(styles.cardContent, {
+  variants: {
+    level: {
+      top: styles.topLevel,
+      nested: styles.nested,
+    },
+  },
+});
+
+const iconVariants = cva(styles.icon, {
+  variants: {
+    colored: {
+      true: styles.colored,
+      false: styles.default,
+    },
+  },
+});
+
+const kbdVariants = cva(cx('neobrutalist-kbd', styles.kbd), {
+  variants: {
+    level: {
+      top: styles.topLevel,
+      nested: styles.nested,
+    },
+    colored: {
+      true: styles.colored,
+      false: styles.default,
+    },
+  },
+});
+
+const labelVariants = cva(styles.label, {
+  variants: {
+    level: {
+      top: styles.topLevel,
+      nested: styles.nested,
+    },
+    colored: {
+      true: styles.colored,
+      false: styles.default,
+    },
+  },
+});
+
+const descriptionVariants = cva(styles.description, {
+  variants: {
+    level: {
+      top: styles.topLevel,
+      nested: styles.nested,
+    },
+    colored: {
+      true: styles.colored,
+      false: styles.default,
+    },
+  },
+});
+
+const notesVariants = cva(styles.notes, {
+  variants: {
+    level: {
+      top: styles.topLevel,
+      nested: styles.nested,
+    },
+    colored: {
+      true: styles.colored,
+      false: styles.default,
+    },
+  },
+});
+
+const chevronVariants = cva(styles.chevron, {
+  variants: {
+    colored: {
+      true: styles.colored,
+      false: styles.default,
+    },
+  },
+});
+
+const childrenGridVariants = cva(styles.childrenGrid, {
+  variants: {
+    level: {
+      top: styles.topLevel,
+      nested: styles.nested,
+    },
+    root: {
+      true: styles.root,
+      false: '',
+    },
+  },
+});
+
 export function KeymapNode({ nodeKey, node, path, depth, scopeColorClass }: KeymapNodeProps) {
   const [isExpanded, setIsExpanded] = useState(depth < 1);
   const hasChildren = node.keymaps && Object.keys(node.keymaps).length > 0;
   const currentPath = [...path, nodeKey];
   const binding = currentPath.join('');
   const isTopLevel = depth === 0;
+  const isColored = !!scopeColorClass;
+  const level = isTopLevel ? 'top' : 'nested';
 
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'flex-start',
-      gap: isTopLevel ? '2rem' : '1rem',
-    }}>
+    <div className={styles.wrapper}>
       {/* Parent Node */}
       <button
         onClick={() => hasChildren && setIsExpanded(!isExpanded)}
-        className={`neobrutalist-card ${scopeColorClass || ''}`}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: isTopLevel ? '1rem' : '0.5rem',
-          padding: isTopLevel ? '0.75rem 1rem' : '0.5rem 0.75rem',
-          background: scopeColorClass ? undefined : 'var(--color-surface)',
-          cursor: hasChildren ? 'pointer' : 'default',
-          minWidth: isTopLevel ? '280px' : '240px',
-          maxWidth: isTopLevel ? '400px' : '360px',
-          textAlign: 'left',
-          flexShrink: 0,
-        }}
+        className={cx(
+          cardVariants({ level, colored: isColored, clickable: hasChildren }),
+          scopeColorClass
+        )}
         disabled={!hasChildren}
       >
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: isTopLevel ? '1rem' : '0.5rem',
-          flex: 1,
-        }}>
+        <div className={cardContentVariants({ level })}>
           {isTopLevel && (
-            <Keyboard
-              size={18}
-              style={{
-                color: scopeColorClass ? 'white' : 'var(--color-text)',
-                flexShrink: 0,
-              }}
-            />
+            <Keyboard size={18} className={iconVariants({ colored: isColored })} />
           )}
-          <kbd
-            className="neobrutalist-kbd"
-            style={{
-              fontSize: isTopLevel ? '1rem' : '0.875rem',
-              color: scopeColorClass ? 'white' : 'var(--color-text)',
-              backgroundColor: scopeColorClass ? 'rgba(255, 255, 255, 0.2)' : undefined,
-              border: scopeColorClass ? '3px solid rgba(255, 255, 255, 0.5)' : undefined,
-              flexShrink: 0,
-            }}
-          >
+          <kbd className={kbdVariants({ level, colored: isColored })}>
             {binding}
           </kbd>
 
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{
-              fontSize: isTopLevel ? '1rem' : '0.875rem',
-              fontWeight: '700',
-              marginBottom: '0.125rem',
-              color: scopeColorClass ? 'white' : 'var(--color-text)',
-            }}>
+          <div className={styles.textContent}>
+            <div className={labelVariants({ level, colored: isColored })}>
               {node.label}
             </div>
 
             {node.description && (
-              <p style={{
-                fontSize: isTopLevel ? '0.875rem' : '0.75rem',
-                color: scopeColorClass ? 'rgba(255, 255, 255, 0.9)' : 'var(--color-text-muted)',
-                margin: 0,
-                lineHeight: '1.3',
-              }}>
+              <p className={descriptionVariants({ level, colored: isColored })}>
                 {node.description}
               </p>
             )}
 
             {node.notes && (
-              <p style={{
-                fontSize: isTopLevel ? '0.75rem' : '0.7rem',
-                color: scopeColorClass ? 'rgba(255, 255, 255, 0.8)' : 'var(--color-text-muted)',
-                fontStyle: 'italic',
-                margin: '0.25rem 0 0 0',
-                lineHeight: '1.3',
-              }}>
+              <p className={notesVariants({ level, colored: isColored })}>
                 {node.notes}
               </p>
             )}
@@ -107,11 +169,11 @@ export function KeymapNode({ nodeKey, node, path, depth, scopeColorClass }: Keym
         </div>
 
         {hasChildren && (
-          <div style={{ flexShrink: 0 }}>
+          <div>
             {isExpanded ? (
-              <ChevronDown size={18} style={{ color: scopeColorClass ? 'white' : 'var(--color-text)' }} />
+              <ChevronDown size={18} className={chevronVariants({ colored: isColored })} />
             ) : (
-              <ChevronRight size={18} style={{ color: scopeColorClass ? 'white' : 'var(--color-text)' }} />
+              <ChevronRight size={18} className={chevronVariants({ colored: isColored })} />
             )}
           </div>
         )}
@@ -119,26 +181,15 @@ export function KeymapNode({ nodeKey, node, path, depth, scopeColorClass }: Keym
 
       {/* Children Nodes */}
       {isExpanded && hasChildren && (
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.5rem',
-            flex: 1,
-            minWidth: 0,
-            paddingLeft: '1rem',
-            borderLeft: '4px solid var(--color-border)',
-          }}
-        >
+        <div className={childrenGridVariants({ level: depth === 1 ? 'top' : 'nested', root: depth === 0 })}>
           {Object.entries(node.keymaps!).map(([key, childNode]) => (
-            <div key={key} data-child-node>
-              <KeymapNode
-                nodeKey={key}
-                node={childNode}
-                path={currentPath}
-                depth={depth + 1}
-              />
-            </div>
+            <KeymapNode
+              key={key}
+              nodeKey={key}
+              node={childNode}
+              path={currentPath}
+              depth={depth + 1}
+            />
           ))}
         </div>
       )}

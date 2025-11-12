@@ -1,6 +1,7 @@
 import React from 'react';
 import type { KeymapRoot } from '../types/keymap';
 import { ScopeCard } from './ScopeCard';
+import styles from './KeymapExplorer.module.css';
 
 interface KeymapExplorerProps {
   keymaps: KeymapRoot;
@@ -8,18 +9,8 @@ interface KeymapExplorerProps {
 
 export function KeymapExplorer({ keymaps }: KeymapExplorerProps) {
   return (
-    <div style={{
-      maxWidth: '95%',
-      margin: '0 auto',
-      padding: '2rem',
-    }}>
-      <div style={{
-        display: 'flex',
-        gap: '2rem',
-        flexWrap: 'wrap',
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
-      }}>
+    <div className={styles.container}>
+      <div className={styles.grid}>
         {Object.entries(keymaps).map(([key, node]) => (
           node && (
             <ScopeCard
