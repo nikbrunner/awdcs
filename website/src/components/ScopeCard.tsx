@@ -30,7 +30,8 @@ export function ScopeCard({ scopeKey, node }: ScopeCardProps) {
         display: 'flex',
         flexDirection: 'column',
         minWidth: '320px',
-        maxWidth: '400px',
+        flex: '1 1 600px',
+        maxWidth: '100%',
       }}
     >
       {/* Top-level Scope Card */}

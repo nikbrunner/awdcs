@@ -9,7 +9,7 @@ interface KeymapExplorerProps {
 export function KeymapExplorer({ keymaps }: KeymapExplorerProps) {
   return (
     <div style={{
-      maxWidth: '1600px',
+      maxWidth: '95%',
       margin: '0 auto',
       padding: '2rem',
     }}>
