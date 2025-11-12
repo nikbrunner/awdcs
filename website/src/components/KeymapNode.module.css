@@ -1,189 +1,189 @@
 .wrapper {
-	display: flex;
-	flex-direction: column;
-	gap: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 .card {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-	text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
 }
 
 .card.topLevel {
-	gap: 1rem;
-	padding: 0.75rem 1rem;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
 }
 
 .card.nested {
-	gap: 0.5rem;
-	padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
 }
 
 .card.colored {
-	/* Background will be set by parent scope class */
+    /* Background will be set by parent scope class */
 }
 
 .card.default {
-	background: var(--color-surface);
+    background: var(--color-surface);
 }
 
 .card.clickable {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .card:not(.clickable) {
-	cursor: default;
+    cursor: default;
 }
 
 .cardContent {
-	display: flex;
-	align-items: center;
-	flex: 1;
+    display: flex;
+    align-items: center;
+    flex: 1;
 }
 
 .cardContent.topLevel {
-	gap: 1rem;
+    gap: 1rem;
 }
 
 .cardContent.nested {
-	gap: 0.5rem;
+    gap: 0.5rem;
 }
 
 .icon {
-	flex-shrink: 0;
+    flex-shrink: 0;
 }
 
 .icon.colored {
-	color: white;
+    color: white;
 }
 
 .icon.default {
-	color: var(--color-text);
+    color: var(--color-text);
 }
 
 .kbd {
-	flex-shrink: 0;
+    flex-shrink: 0;
 }
 
 .kbd.topLevel {
-	font-size: 1rem;
+    font-size: 1rem;
 }
 
 .kbd.nested {
-	font-size: 0.875rem;
+    font-size: 0.875rem;
 }
 
 .kbd.colored {
-	color: white;
-	background-color: rgba(255, 255, 255, 0.2);
-	border: 3px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.5);
 }
 
 .kbd.default {
-	color: var(--color-text);
+    color: var(--color-text);
 }
 
 .textContent {
-	flex: 1;
-	min-width: 0;
+    flex: 1;
+    min-width: 0;
 }
 
 .label {
-	font-weight: 700;
-	margin-bottom: 0.125rem;
+    font-weight: 700;
+    margin-bottom: 0.125rem;
 }
 
 .label.topLevel {
-	font-size: 1rem;
+    font-size: 1rem;
 }
 
 .label.nested {
-	font-size: 0.875rem;
+    font-size: 0.875rem;
 }
 
 .label.colored {
-	color: white;
+    color: white;
 }
 
 .label.default {
-	color: var(--color-text);
+    color: var(--color-text);
 }
 
 .description {
-	margin: 0;
-	line-height: 1.3;
+    margin: 0;
+    line-height: 1.3;
 }
 
 .description.topLevel {
-	font-size: 0.875rem;
+    font-size: 0.875rem;
 }
 
 .description.nested {
-	font-size: 0.75rem;
+    font-size: 0.75rem;
 }
 
 .description.colored {
-	color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .description.default {
-	color: var(--color-text-muted);
+    color: var(--color-text-muted);
 }
 
 .notes {
-	font-style: italic;
-	margin: 0.25rem 0 0 0;
-	line-height: 1.3;
+    font-style: italic;
+    margin: 0.25rem 0 0 0;
+    line-height: 1.3;
 }
 
 .notes.topLevel {
-	font-size: 0.75rem;
+    font-size: 0.75rem;
 }
 
 .notes.nested {
-	font-size: 0.7rem;
+    font-size: 0.7rem;
 }
 
 .notes.colored {
-	color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .notes.default {
-	color: var(--color-text-muted);
+    color: var(--color-text-muted);
 }
 
 .chevron {
-	flex-shrink: 0;
+    flex-shrink: 0;
 }
 
 .chevron.colored {
-	color: white;
+    color: white;
 }
 
 .chevron.default {
-	color: var(--color-text);
+    color: var(--color-text);
 }
 
 .childrenGrid {
-	display: grid;
-	gap: 0.75rem;
-	border-left: 3px solid var(--color-border);
+    display: grid;
+    gap: 0.75rem;
+    border-left: 3px solid var(--color-border);
 }
 
 .childrenGrid.topLevel {
-	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-	padding-left: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    padding-left: 1rem;
 }
 
 .childrenGrid.nested {
-	grid-template-columns: 1fr;
-	padding-left: 1rem;
+    grid-template-columns: 1fr;
+    padding-left: 1rem;
 }
 
 .childrenGrid.root {
-	border-left: none;
-	padding-left: 0;
+    border-left: none;
+    padding-left: 0;
 }

@@ -1,119 +1,119 @@
 :root {
-	--color-bg: #fafafa;
-	--color-surface: #ffffff;
-	--color-text: #000000;
-	--color-text-muted: #666666;
-	--color-primary: #000000;
-	--color-border: #000000;
-	--color-accent: #f0f7ff;
+    --color-bg: #fafafa;
+    --color-surface: #ffffff;
+    --color-text: #000000;
+    --color-text-muted: #666666;
+    --color-primary: #000000;
+    --color-border: #000000;
+    --color-accent: #f0f7ff;
 
-	/* Scope Colors - Neobrutalist palette */
-	--color-app: #e74c3c;
-	--color-workspace: #e67e22;
-	--color-document: #3498db;
-	--color-change: #2ecc71;
-	--color-symbol: #9b59b6;
+    /* Scope Colors - Neobrutalist palette */
+    --color-app: #e74c3c;
+    --color-workspace: #e67e22;
+    --color-document: #3498db;
+    --color-change: #2ecc71;
+    --color-symbol: #9b59b6;
 
-	/* Neobrutalist styling */
-	--border-width: 4px;
-	--border-radius: 0px;
-	--shadow-offset: 8px;
+    /* Neobrutalist styling */
+    --border-width: 4px;
+    --border-radius: 0px;
+    --shadow-offset: 8px;
 
-	--font-mono:
-		"SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
-	--font-sans:
-		-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-		sans-serif;
+    --font-mono:
+        "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
+    --font-sans:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        sans-serif;
 }
 
 [data-theme="dark"] {
-	--color-bg: #0a0a0a;
-	--color-surface: #1a1a1a;
-	--color-text: #ffffff;
-	--color-text-muted: #999999;
-	--color-primary: #ffffff;
-	--color-border: #ffffff;
-	--color-accent: #1a2a3a;
+    --color-bg: #0a0a0a;
+    --color-surface: #1a1a1a;
+    --color-text: #ffffff;
+    --color-text-muted: #999999;
+    --color-primary: #ffffff;
+    --color-border: #ffffff;
+    --color-accent: #1a2a3a;
 
-	/* Scope Colors - Neobrutalist palette (dark theme adjusted) */
-	--color-app: #ff6b5a;
-	--color-workspace: #ff9147;
-	--color-document: #5dade2;
-	--color-change: #58d68d;
-	--color-symbol: #bb8fce;
+    /* Scope Colors - Neobrutalist palette (dark theme adjusted) */
+    --color-app: #ff6b5a;
+    --color-workspace: #ff9147;
+    --color-document: #5dade2;
+    --color-change: #58d68d;
+    --color-symbol: #bb8fce;
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-	font-family: var(--font-sans);
-	background-color: var(--color-bg);
-	color: var(--color-text);
-	line-height: 1.6;
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
 }
 
 code,
 kbd {
-	font-family: var(--font-mono);
-	font-size: 0.9em;
-	background-color: var(--color-surface);
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	border: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background-color: var(--color-surface);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    border: 1px solid var(--color-border);
 }
 
 /* Neobrutalist Utilities */
 .neobrutalist-card {
-	border: var(--border-width) solid var(--color-border);
-	border-radius: var(--border-radius);
-	box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-border);
-	transition:
-		transform 0.2s,
-		box-shadow 0.2s;
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-border);
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
 }
 
 .neobrutalist-card:hover {
-	transform: translate(-2px, -2px);
-	box-shadow: calc(var(--shadow-offset) + 2px) calc(var(--shadow-offset) + 2px)
-		0 var(--color-border);
+    transform: translate(-2px, -2px);
+    box-shadow: calc(var(--shadow-offset) + 2px)
+        calc(var(--shadow-offset) + 2px) 0 var(--color-border);
 }
 
 .neobrutalist-kbd {
-	font-family: var(--font-mono);
-	font-weight: 800;
-	padding: 0.4rem 0.6rem;
-	border: 3px solid var(--color-border);
-	border-radius: var(--border-radius);
-	background: var(--color-surface);
-	display: inline-block;
+    font-family: var(--font-mono);
+    font-weight: 800;
+    padding: 0.4rem 0.6rem;
+    border: 3px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background: var(--color-surface);
+    display: inline-block;
 }
 
 /* Scope-specific colors */
 .scope-app {
-	background: var(--color-app);
-	color: white;
+    background: var(--color-app);
+    color: white;
 }
 
 .scope-workspace {
-	background: var(--color-workspace);
-	color: white;
+    background: var(--color-workspace);
+    color: white;
 }
 
 .scope-document {
-	background: var(--color-document);
-	color: white;
+    background: var(--color-document);
+    color: white;
 }
 
 .scope-change {
-	background: var(--color-change);
-	color: white;
+    background: var(--color-change);
+    color: white;
 }
 
 .scope-symbol {
-	background: var(--color-symbol);
-	color: white;
+    background: var(--color-symbol);
+    color: white;
 }
