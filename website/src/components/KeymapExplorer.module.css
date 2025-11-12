@@ -1,13 +1,13 @@
 .container {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 2rem;
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 2rem;
 }
 
 .grid {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+	display: flex;
+	gap: 2rem;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
 }
