@@ -89,7 +89,7 @@ This pattern applies consistently across similar operations where both quick-acc
 | `<leader>aa`  | `A`pp `A`ctions            | Show available app actions / commands                  |
 | `<leader>ad`  | `A`pp `D`ocument           | Open document from any workspace                       | If available. (e.g. `file-surfer.nvim`)                                                                              |
 | `<leader>af`  | `A`pp `F`ocus              | Focus Mode                                             |
-| `<leader>ag`  | `A`pp `V`ersion            | Show version control                                   | e.g. LazyGit                                                                                                         |
+| `<leader>av`  | `A`pp `V`ersion            | Show version control                                   | e.g. LazyGit                                                                                                         |
 | `<leader>ah`  | `A`pp `H`elp               | Show help submenu                                      | Submenu for documentation, manuals, and help resources                                                               |
 | `<leader>ahh` | `A`pp `H`elp `H`ighlights  | Show syntax highlights                                 |                                                                                                                      |
 | `<leader>ahk` | `A`pp `H`elp `K`eybindings | Show keybindings                                       |                                                                                                                      |
