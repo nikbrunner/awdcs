@@ -135,34 +135,34 @@ export const keymaps: KeymapRoot = {
           u: { label: 'Undo', description: 'Undo staged hunk' },
         },
       },
-    },
-  },
-  s: {
-    label: 'Symbol',
-    description: 'Operations on code symbols (Can also be used as <leader>s)',
-    keymaps: {
-      I: { label: 'Inspect', description: 'Inspect symbol under cursor' },
-      a: { label: 'Actions', description: 'Show symbol actions' },
-      c: {
-        label: 'Calls',
-        description: 'Show calls submenu',
+      s: {
+        label: 'Symbol',
+        description: 'Operations on code symbols',
         keymaps: {
-          i: { label: 'Incoming', description: 'Show incoming calls' },
-          o: { label: 'Outgoing', description: 'Show outgoing calls' },
-        },
-      },
-      d: { label: 'Definition', description: 'Go to symbol definition' },
-      i: { label: 'Info', description: 'Show symbol information', notes: 'Hover Information' },
-      l: { label: 'Log', description: 'Insert log for symbol', notes: 'If available. (e.g. Programmatically log symbol under cursor)' },
-      n: { label: 'Name', description: 'Rename symbol' },
-      r: { label: 'References', description: 'Show symbol references' },
-      t: { label: 'Type', description: 'Go to type definition' },
-      v: {
-        label: 'Version',
-        description: 'Show version submenu',
-        keymaps: {
-          b: { label: 'Blame', description: 'Show version blame for line' },
-          h: { label: 'History', description: 'Show version history for line' },
+          I: { label: 'Inspect', description: 'Inspect symbol under cursor' },
+          a: { label: 'Actions', description: 'Show symbol actions' },
+          c: {
+            label: 'Calls',
+            description: 'Show calls submenu',
+            keymaps: {
+              i: { label: 'Incoming', description: 'Show incoming calls' },
+              o: { label: 'Outgoing', description: 'Show outgoing calls' },
+            },
+          },
+          d: { label: 'Definition', description: 'Go to symbol definition' },
+          i: { label: 'Info', description: 'Show symbol information', notes: 'Hover Information' },
+          l: { label: 'Log', description: 'Insert log for symbol', notes: 'If available. (e.g. Programmatically log symbol under cursor)' },
+          n: { label: 'Name', description: 'Rename symbol' },
+          r: { label: 'References', description: 'Show symbol references' },
+          t: { label: 'Type', description: 'Go to type definition' },
+          v: {
+            label: 'Version',
+            description: 'Show version submenu',
+            keymaps: {
+              b: { label: 'Blame', description: 'Show version blame for line' },
+              h: { label: 'History', description: 'Show version history for line' },
+            },
+          },
         },
       },
     },
