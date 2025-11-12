@@ -19,99 +19,100 @@ export function KeymapNode({ nodeKey, node, path, depth, scopeColorClass }: Keym
   return (
     <div style={{
       display: 'flex',
-      flexDirection: 'column',
-      width: '100%',
+      flexDirection: 'row',
+      alignItems: 'flex-start',
+      gap: '2rem',
     }}>
       {/* Parent Node */}
-      <div>
-        <button
-          onClick={() => hasChildren && setIsExpanded(!isExpanded)}
-          className={`neobrutalist-card ${scopeColorClass || ''}`}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '1rem',
-            padding: '1rem 1.25rem',
-            background: scopeColorClass ? undefined : 'var(--color-surface)',
-            cursor: hasChildren ? 'pointer' : 'default',
-            width: '100%',
-            textAlign: 'left',
-          }}
-          disabled={!hasChildren}
-        >
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '1rem',
-            flex: 1,
-          }}>
-            <Keyboard
-              size={20}
-              style={{
-                color: scopeColorClass ? 'white' : 'var(--color-text)',
-                flexShrink: 0,
-              }}
-            />
-            <kbd
-              className="neobrutalist-kbd"
-              style={{
-                fontSize: '1rem',
-                color: scopeColorClass ? 'white' : 'var(--color-text)',
-                backgroundColor: scopeColorClass ? 'rgba(255, 255, 255, 0.2)' : undefined,
-                border: scopeColorClass ? '3px solid rgba(255, 255, 255, 0.5)' : undefined,
-                flexShrink: 0,
-              }}
-            >
-              {binding}
-            </kbd>
+      <button
+        onClick={() => hasChildren && setIsExpanded(!isExpanded)}
+        className={`neobrutalist-card ${scopeColorClass || ''}`}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '1rem',
+          padding: '1rem 1.25rem',
+          background: scopeColorClass ? undefined : 'var(--color-surface)',
+          cursor: hasChildren ? 'pointer' : 'default',
+          minWidth: '280px',
+          maxWidth: '400px',
+          textAlign: 'left',
+          flexShrink: 0,
+        }}
+        disabled={!hasChildren}
+      >
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1rem',
+          flex: 1,
+        }}>
+          <Keyboard
+            size={20}
+            style={{
+              color: scopeColorClass ? 'white' : 'var(--color-text)',
+              flexShrink: 0,
+            }}
+          />
+          <kbd
+            className="neobrutalist-kbd"
+            style={{
+              fontSize: '1rem',
+              color: scopeColorClass ? 'white' : 'var(--color-text)',
+              backgroundColor: scopeColorClass ? 'rgba(255, 255, 255, 0.2)' : undefined,
+              border: scopeColorClass ? '3px solid rgba(255, 255, 255, 0.5)' : undefined,
+              flexShrink: 0,
+            }}
+          >
+            {binding}
+          </kbd>
 
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{
-                fontSize: '1rem',
-                fontWeight: '700',
-                marginBottom: '0.125rem',
-                color: scopeColorClass ? 'white' : 'var(--color-text)',
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{
+              fontSize: '1rem',
+              fontWeight: '700',
+              marginBottom: '0.125rem',
+              color: scopeColorClass ? 'white' : 'var(--color-text)',
+            }}>
+              {node.label}
+            </div>
+
+            {node.description && (
+              <p style={{
+                fontSize: '0.875rem',
+                color: scopeColorClass ? 'rgba(255, 255, 255, 0.9)' : 'var(--color-text-muted)',
+                margin: 0,
+                lineHeight: '1.3',
               }}>
-                {node.label}
-              </div>
+                {node.description}
+              </p>
+            )}
 
-              {node.description && (
-                <p style={{
-                  fontSize: '0.875rem',
-                  color: scopeColorClass ? 'rgba(255, 255, 255, 0.9)' : 'var(--color-text-muted)',
-                  margin: 0,
-                  lineHeight: '1.3',
-                }}>
-                  {node.description}
-                </p>
-              )}
-
-              {node.notes && (
-                <p style={{
-                  fontSize: '0.75rem',
-                  color: scopeColorClass ? 'rgba(255, 255, 255, 0.8)' : 'var(--color-text-muted)',
-                  fontStyle: 'italic',
-                  margin: '0.25rem 0 0 0',
-                  lineHeight: '1.3',
-                }}>
-                  {node.notes}
-                </p>
-              )}
-            </div>
+            {node.notes && (
+              <p style={{
+                fontSize: '0.75rem',
+                color: scopeColorClass ? 'rgba(255, 255, 255, 0.8)' : 'var(--color-text-muted)',
+                fontStyle: 'italic',
+                margin: '0.25rem 0 0 0',
+                lineHeight: '1.3',
+              }}>
+                {node.notes}
+              </p>
+            )}
           </div>
+        </div>
 
-          {hasChildren && (
-            <div style={{ flexShrink: 0 }}>
-              {isExpanded ? (
-                <ChevronDown size={20} style={{ color: scopeColorClass ? 'white' : 'var(--color-text)' }} />
-              ) : (
-                <ChevronRight size={20} style={{ color: scopeColorClass ? 'white' : 'var(--color-text)' }} />
-              )}
-            </div>
-          )}
-        </button>
-      </div>
+        {hasChildren && (
+          <div style={{ flexShrink: 0 }}>
+            {isExpanded ? (
+              <ChevronDown size={20} style={{ color: scopeColorClass ? 'white' : 'var(--color-text)' }} />
+            ) : (
+              <ChevronRight size={20} style={{ color: scopeColorClass ? 'white' : 'var(--color-text)' }} />
+            )}
+          </div>
+        )}
+      </button>
 
       {/* Children Nodes */}
       {isExpanded && hasChildren && (
@@ -120,8 +121,9 @@ export function KeymapNode({ nodeKey, node, path, depth, scopeColorClass }: Keym
             display: 'flex',
             flexDirection: 'column',
             gap: '1rem',
-            marginTop: '1rem',
-            paddingLeft: '2rem',
+            flex: 1,
+            minWidth: 0,
+            paddingLeft: '1rem',
             borderLeft: '4px solid var(--color-border)',
           }}
         >

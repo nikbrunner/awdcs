@@ -28,10 +28,9 @@ export function ScopeCard({ scopeKey, node }: ScopeCardProps) {
     <div
       style={{
         display: 'flex',
-        flexDirection: 'column',
-        minWidth: '320px',
-        flex: '1 1 600px',
-        maxWidth: '100%',
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        gap: '2rem',
       }}
     >
       {/* Top-level Scope Card */}
@@ -45,8 +44,10 @@ export function ScopeCard({ scopeKey, node }: ScopeCardProps) {
           padding: '2rem',
           background: 'var(--color-surface)',
           cursor: hasChildren ? 'pointer' : 'default',
-          width: '100%',
+          minWidth: '320px',
+          maxWidth: '400px',
           textAlign: 'left',
+          flexShrink: 0,
         }}
         disabled={!hasChildren}
       >
@@ -129,11 +130,11 @@ export function ScopeCard({ scopeKey, node }: ScopeCardProps) {
       {isExpanded && hasChildren && (
         <div
           style={{
-            marginTop: '2rem',
             display: 'flex',
             flexDirection: 'column',
             gap: '1.5rem',
-            paddingLeft: '1rem',
+            flex: 1,
+            minWidth: 0,
           }}
         >
           {Object.entries(node.keymaps!).map(([key, childNode]) => {
