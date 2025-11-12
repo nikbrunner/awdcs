@@ -36,7 +36,7 @@ export const keymaps: KeymapRoot = {
           n: { label: 'Notifications', description: 'Show notifications' },
           o: { label: 'Options', description: 'Toggle app options like Background, Line numbers, etc.' },
           p: { label: 'Plugins', description: 'Manage plugins' },
-          r: { label: 'Recent', description: 'Open recently visited documents accross all workspace', notes: 'If available.' },
+          r: { label: 'Recent', description: 'Open recently visited documents across all workspace', notes: 'If available.' },
           s: { label: 'Settings', description: 'Toggle app settings', notes: 'In Neovim this would let us fuzzy find config files, and on a mac app this would lead us to `settings.json`. (cmd-,)' },
           t: { label: 'Themes', description: 'Switch theme or colorscheme' },
           w: { label: 'Workspace', description: 'Open workspace' },
@@ -54,7 +54,7 @@ export const keymaps: KeymapRoot = {
           j: { label: 'Jumps', description: 'Show workspace jumps', notes: 'Jump list for workspace-level navigation' },
           m: { label: 'Modified', description: 'Show modified documents', notes: 'List of modified files (git status)' },
           p: { label: 'Problems', description: 'Show workspace diagnostics' },
-          r: { label: 'Recent', description: 'Show recently visited documents', notes: "Optional: Maybe not needed, if editor merges recently opend documents in `<leader>wd`." },
+          r: { label: 'Recent', description: 'Show recently visited documents', notes: "Optional: Maybe not needed, if editor merges recently opened documents in `<leader>wd`." },
           s: { label: 'Symbol', description: 'Find symbol in workspace' },
           t: { label: 'Text', description: 'Find text in workspace' },
           v: {
