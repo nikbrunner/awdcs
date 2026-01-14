@@ -126,10 +126,13 @@ This pattern applies consistently across similar operations where both quick-acc
 | `<leader>wt`   | `W`orkspace `T`ext                                  | Find text in workspace              |
 | `<leader>wv`   | `W`orkspace `V`ersion                               | Show version submenu                | Submenu for all version control operations                                                            |
 | `<leader>wvb`  | `W`orkspace `V`ersion `B`ranches                    | Show version branches               |                                                                                                       |
+| `<leader>wvB`  | `W`orkspace `V`ersion `B`ranch compare              | Compare against branch (side-by-side) | If available (e.g., CodeDiff)                                                                       |
+| `<leader>wvD`  | `W`orkspace `V`ersion `D`iff                        | Show version diff (side-by-side)    | If available (e.g., CodeDiff)                                                                         |
 | `<leader>wvh`  | `W`orkspace `V`ersion `H`istory                     | Show version history (picker)       |                                                                                                       |
 | `<leader>wvH`  | `W`orkspace `V`ersion `H`istory                     | Show version history (interactive)  | If available (e.g., LazyGit)                                                                          |
 | `<leader>wvi`  | `W`orkspace `V`ersion `I`ssues                      | Show issues submenu                 | If available (GitHub integration). Namespace for issue operations.                                    |
 | `<leader>wvib` | `W`orkspace `V`ersion `I`ssues `B`rowse             | Browse GitHub issues                | If available (GitHub integration)                                                                     |
+| `<leader>wvM`  | `W`orkspace `V`ersion `M`erge                       | Resolve merge conflicts             | If available (e.g., CodeDiff)                                                                         |
 | `<leader>wvp`  | `W`orkspace `V`ersion `P`ull Requests               | Show pull requests submenu          | If available (GitHub integration). Namespace for PR operations.                                       |
 | `<leader>wvpb` | `W`orkspace `V`ersion `P`ull Requests `B`rowse      | Browse pull requests                | If available (GitHub integration)                                                                     |
 | `<leader>wvpc` | `W`orkspace `V`ersion `P`ull Requests `C`hanges     | Show current PR changes             | If available (GitHub integration)                                                                     |
@@ -151,6 +154,7 @@ This pattern applies consistently across similar operations where both quick-acc
 | `<leader>dt`  | `D`ocument `T`ext              | Find text in document                       |
 | `<leader>du`  | `D`ocument `U`ndo              | Open undo tree                              | If available.                                 |
 | `<leader>dv`  | `D`ocument `V`ersion           | Show version submenu                        | Submenu for document-level version operations |
+| `<leader>dvD` | `D`ocument `V`ersion `D`iff    | Show document diff (side-by-side)           | If available (e.g., CodeDiff)                 |
 | `<leader>dvh` | `D`ocument `V`ersion `H`istory | Show document version history (picker)      |                                               |
 | `<leader>dvH` | `D`ocument `V`ersion `H`istory | Show document version history (interactive) | If available (e.g., LazyGit)                  |
 | `<leader>dvr` | `D`ocument `V`ersion `R`evert  | Revert changes                              |
